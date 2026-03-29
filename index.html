@@ -152,6 +152,62 @@
       </div>
     </section>
 
+    <!-- SECTION: prices -->
+    <section id="prices" class="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
+      <h2 class="text-center text-2xl font-bold text-slate-900 sm:text-3xl">Примеры цен</h2>
+      <p class="mt-2 text-center text-sm text-slate-500">Все цены указаны с замером, доставкой и установкой</p>
+      <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <div class="relative">
+            <img src="public/images/okno-1.webp" alt="Одностворчатое окно" width="480" height="360" class="aspect-[4/3] w-full object-cover" loading="lazy" decoding="async">
+            <span class="absolute right-3 top-3 rounded-full bg-orange-500 px-3 py-1 text-xs font-semibold text-white shadow">Сетка в подарок</span>
+          </div>
+          <div class="flex flex-1 flex-col p-5">
+            <h3 class="text-lg font-semibold text-slate-900">Одностворчатое окно</h3>
+            <p class="mt-1 text-sm text-slate-500">Цвет: белый</p>
+            <p class="mt-3 text-xl font-bold text-slate-900">от 21 900 руб. с установкой</p>
+            <button type="button" id="btn-price-1" class="mt-auto w-full pt-4 rounded-lg bg-sky-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-sky-700">Заказать расчёт</button>
+          </div>
+        </article>
+        <article class="relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <div class="relative">
+            <img src="public/images/okno-2.webp" alt="Двухстворчатое окно" width="480" height="360" class="aspect-[4/3] w-full object-cover" loading="lazy" decoding="async">
+            <span class="absolute right-3 top-3 rounded-full bg-orange-500 px-3 py-1 text-xs font-semibold text-white shadow">Сетка в подарок</span>
+          </div>
+          <div class="flex flex-1 flex-col p-5">
+            <h3 class="text-lg font-semibold text-slate-900">Двухстворчатое окно</h3>
+            <p class="mt-1 text-sm text-slate-500">Цвет: белый</p>
+            <p class="mt-3 text-xl font-bold text-slate-900">от 24 900 руб. с установкой</p>
+            <button type="button" id="btn-price-2" class="mt-auto w-full pt-4 rounded-lg bg-sky-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-sky-700">Заказать расчёт</button>
+          </div>
+        </article>
+        <article class="relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <div class="relative">
+            <img src="public/images/okno-3.webp" alt="Трёхстворчатое окно" width="480" height="360" class="aspect-[4/3] w-full object-cover" loading="lazy" decoding="async">
+            <span class="absolute right-3 top-3 rounded-full bg-orange-500 px-3 py-1 text-xs font-semibold text-white shadow">Сетка в подарок</span>
+          </div>
+          <div class="flex flex-1 flex-col p-5">
+            <h3 class="text-lg font-semibold text-slate-900">Трёхстворчатое окно</h3>
+            <p class="mt-1 text-sm text-slate-500">Цвет: белый</p>
+            <p class="mt-3 text-xl font-bold text-slate-900">от 29 900 руб. с установкой</p>
+            <button type="button" id="btn-price-3" class="mt-auto w-full pt-4 rounded-lg bg-sky-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-sky-700">Заказать расчёт</button>
+          </div>
+        </article>
+        <article class="relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <div class="relative">
+            <img src="public/images/balkon-3.webp" alt="Балконный блок" width="480" height="360" class="aspect-[4/3] w-full object-cover" loading="lazy" decoding="async">
+            <span class="absolute right-3 top-3 rounded-full bg-orange-500 px-3 py-1 text-xs font-semibold text-white shadow">Сетка в подарок</span>
+          </div>
+          <div class="flex flex-1 flex-col p-5">
+            <h3 class="text-lg font-semibold text-slate-900">Балконный блок</h3>
+            <p class="mt-1 text-sm text-slate-500">Цвет: белый</p>
+            <p class="mt-3 text-xl font-bold text-slate-900">от 44 900 руб. с установкой</p>
+            <button type="button" id="btn-price-4" class="mt-auto w-full pt-4 rounded-lg bg-sky-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-sky-700">Заказать расчёт</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <section id="social-proof" class="border-y border-slate-200 bg-slate-50 py-12 sm:py-16">
       <div class="bg-sky-600">
         <div class="mx-auto grid max-w-5xl grid-cols-1 gap-6 px-4 py-8 text-center sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -377,6 +433,10 @@
           if (toggle) toggle.setAttribute('aria-expanded', 'false');
           scrollToForm();
         });
+      });
+
+      document.querySelectorAll('[id^="btn-price-"]').forEach(function (btn) {
+        btn.addEventListener('click', scrollToForm);
       });
 
       var form = document.getElementById('lead-form');
