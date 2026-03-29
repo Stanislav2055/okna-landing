@@ -292,6 +292,14 @@
         </div>
       </div>
     </section>
+
+    <section id="cta-bottom" class="bg-sky-700 py-12 text-white sm:py-16">
+      <div class="mx-auto max-w-5xl px-4 text-center sm:px-6">
+        <h2 class="text-2xl font-bold sm:text-3xl">Получите бесплатный расчёт стоимости</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-white/90 sm:text-base">Замерщик приедет в удобное время. Цена фиксируется в договоре.</p>
+        <button type="button" id="btn-modal-open" class="mt-8 inline-flex rounded-lg bg-white px-6 py-3 text-sm font-semibold text-sky-700 shadow-sm hover:bg-sky-50">Заказать расчёт</button>
+      </div>
+    </section>
   </main>
 
   <!-- Футер -->
@@ -315,6 +323,30 @@
       </div>
     </div>
   </footer>
+
+  <div id="modal-callback" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="relative mx-4 w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl">
+      <button type="button" id="modal-close" class="absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-lg text-2xl leading-none text-slate-500 hover:bg-slate-100 hover:text-slate-800" aria-label="Закрыть">&times;</button>
+      <h3 id="modal-title" class="pr-10 text-lg font-semibold text-slate-900">Заказать обратный звонок</h3>
+      <form id="modal-form" class="mt-4" action="#" method="post">
+        <div class="space-y-3">
+          <label class="block">
+            <span class="mb-1 block text-xs font-medium text-slate-600">Имя</span>
+            <input type="text" name="name" required autocomplete="name" placeholder="Как к вам обращаться" class="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm outline-none ring-sky-500 focus:border-sky-500 focus:ring-2">
+          </label>
+          <label class="block">
+            <span class="mb-1 block text-xs font-medium text-slate-600">Телефон</span>
+            <input type="tel" name="phone" required autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" class="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm outline-none ring-sky-500 focus:border-sky-500 focus:ring-2">
+          </label>
+        </div>
+        <label class="mt-4 flex cursor-pointer items-start gap-2 text-xs text-slate-600">
+          <input type="checkbox" name="consent" required class="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300 text-sky-600 focus:ring-sky-500">
+          <span>Согласен на обработку персональных данных в соответствии с <a href="policy.html" class="text-sky-700 underline hover:no-underline">политикой конфиденциальности</a></span>
+        </label>
+        <button type="submit" class="mt-5 w-full rounded-lg bg-sky-600 py-3 text-sm font-semibold text-white shadow-sm hover:bg-sky-700">Перезвоните мне</button>
+      </form>
+    </div>
+  </div>
 
   <script>
     (function () {
@@ -380,6 +412,50 @@
               if (icon) icon.textContent = '\u2212';
             }
           });
+        });
+      }
+
+      var modal = document.getElementById('modal-callback');
+      var btnModalOpen = document.getElementById('btn-modal-open');
+      var modalClose = document.getElementById('modal-close');
+      var modalForm = document.getElementById('modal-form');
+
+      function openModal() {
+        if (!modal) return;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        if (!modal) return;
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+
+      if (btnModalOpen) {
+        btnModalOpen.addEventListener('click', function () {
+          openModal();
+        });
+      }
+      if (modalClose) {
+        modalClose.addEventListener('click', function () {
+          closeModal();
+        });
+      }
+      if (modal) {
+        modal.addEventListener('click', function (e) {
+          if (e.target === modal) {
+            closeModal();
+          }
+        });
+      }
+      if (modalForm) {
+        modalForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          alert('Спасибо! Мы перезвоним (демо). Подключите отправку на сервер.');
+          closeModal();
         });
       }
 
