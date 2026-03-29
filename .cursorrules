@@ -1,42 +1,34 @@
 ---
-description: 
-alwaysApply: true
----
-
----
-description: 
+description:
 alwaysApply: true
 ---
 
 # OknaPro Landing — Cursor Rules
 
-## Стек
-- Чистый HTML5, Tailwind CSS v3 (CDN), Vanilla JS (ES5-совместимый)
-- Никаких npm, сборщиков, фреймворков, внешних библиотек кроме Tailwind CDN
-- Один файл: index.html (+ policy.html при необходимости)
+## Stack
+- HTML5 + Tailwind CSS v3 CDN + Vanilla JS ES5
+- No npm, bundlers, frameworks, libs except Tailwind CDN
+- Single file: index.html (+ policy.html if needed)
 
-## HTML-стандарты
-- Семантические теги: <header>, <main>, <section>, <article>, <footer>, <nav>
-- aria-label на интерактивных элементах без текста
-- loading="lazy" decoding="async" на всех <img> кроме LCP-изображения (hero)
-- id-атрибуты только на якорях навигации и JS-хуках
+## HTML
+- Semantic tags: header/main/section/article/footer/nav
+- aria-label on interactive elements without visible text
+- loading="lazy" decoding="async" on all <img> except LCP hero image
+- id attributes only on nav anchors and JS hooks
 
-## CSS / Tailwind
-- Утилитарные классы Tailwind, никаких inline-стилей
-- Брейкпоинты: sm: md: lg: (mobile-first)
-- Цветовая палитра: sky-600 (акцент), slate-900/700/600/200/100/50 (нейтрали), white
+## CSS
+- Tailwind utility classes only, no inline styles
+- Breakpoints: sm: md: lg: (mobile-first)
+- Palette: sky-600 (accent), slate-900/700/600/200/100/50, white
 
-## JavaScript
-- IIFE-обёртка (function(){...})() для изоляции
-- Никаких let/const/arrow functions (ES5 для максимальной совместимости)
-- Событийная модель через addEventListener, никаких onclick-атрибутов
+## JS
+- IIFE wrapper (function(){...})() for isolation
+- ES5 only: var, function declarations, no arrow functions, no let/const
+- addEventListener only, no onclick attributes
 
-## Что НЕ делать
-- Не добавлять комментарии с объяснением очевидного
-- Не переписывать секции, которые не затронуты задачей
-- Не добавлять новые зависимости без явного запроса
-- Не изменять структуру папок без явного запроса
-
-## Формат ответа в Composer
-- Показывай только изменённые фрагменты, не весь файл
-- Если правка касается одной секции — оборачивай в комментарий <!-- SECTION: name -->
+## Composer output rules
+- Show ONLY changed fragments, never the full file
+- Wrap each section edit in <!-- SECTION: name --> comment
+- Never rewrite sections not mentioned in the task
+- Never add new dependencies without explicit request
+- Never add explanatory comments to obvious code
