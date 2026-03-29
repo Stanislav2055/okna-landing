@@ -208,6 +208,78 @@
       </div>
     </section>
 
+    <!-- SECTION: works -->
+    <section id="works" class="border-t border-slate-200 bg-slate-50 py-12 sm:py-16">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6">
+
+        <h2 class="text-center text-2xl font-bold text-slate-900 sm:text-3xl">
+          Примеры наших работ
+        </h2>
+        <p class="mx-auto mt-2 max-w-xl text-center text-sm text-slate-500">
+          Нажмите на фото для просмотра
+        </p>
+
+        <!-- Сетка: 2 кол. на мобиле, 3 кол. на планшете и десктопе -->
+        <div class="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4"
+             id="works-grid">
+
+          <!-- 7 фото: r1–r7. Последнее (r7) на мобиле занимает 2 кол. (col-span-2),
+               на sm и выше — обычная ячейка (sm:col-span-1) -->
+
+          <button type="button" class="works-thumb overflow-hidden rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+                  data-src="public/images/r1.webp" data-alt="Пример работы 1" aria-label="Открыть фото 1">
+            <img src="public/images/r1.webp" alt="Пример работы 1" width="480" height="360"
+                 class="aspect-[4/3] w-full object-cover transition-transform duration-300 hover:scale-105"
+                 loading="lazy" decoding="async">
+          </button>
+
+          <button type="button" class="works-thumb overflow-hidden rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+                  data-src="public/images/r2.webp" data-alt="Пример работы 2" aria-label="Открыть фото 2">
+            <img src="public/images/r2.webp" alt="Пример работы 2" width="480" height="360"
+                 class="aspect-[4/3] w-full object-cover transition-transform duration-300 hover:scale-105"
+                 loading="lazy" decoding="async">
+          </button>
+
+          <button type="button" class="works-thumb overflow-hidden rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+                  data-src="public/images/r3.webp" data-alt="Пример работы 3" aria-label="Открыть фото 3">
+            <img src="public/images/r3.webp" alt="Пример работы 3" width="480" height="360"
+                 class="aspect-[4/3] w-full object-cover transition-transform duration-300 hover:scale-105"
+                 loading="lazy" decoding="async">
+          </button>
+
+          <button type="button" class="works-thumb overflow-hidden rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+                  data-src="public/images/r4.webp" data-alt="Пример работы 4" aria-label="Открыть фото 4">
+            <img src="public/images/r4.webp" alt="Пример работы 4" width="480" height="360"
+                 class="aspect-[4/3] w-full object-cover transition-transform duration-300 hover:scale-105"
+                 loading="lazy" decoding="async">
+          </button>
+
+          <button type="button" class="works-thumb overflow-hidden rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+                  data-src="public/images/r5.webp" data-alt="Пример работы 5" aria-label="Открыть фото 5">
+            <img src="public/images/r5.webp" alt="Пример работы 5" width="480" height="360"
+                 class="aspect-[4/3] w-full object-cover transition-transform duration-300 hover:scale-105"
+                 loading="lazy" decoding="async">
+          </button>
+
+          <button type="button" class="works-thumb overflow-hidden rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+                  data-src="public/images/r6.webp" data-alt="Пример работы 6" aria-label="Открыть фото 6">
+            <img src="public/images/r6.webp" alt="Пример работы 6" width="480" height="360"
+                 class="aspect-[4/3] w-full object-cover transition-transform duration-300 hover:scale-105"
+                 loading="lazy" decoding="async">
+          </button>
+
+          <!-- r7: на мобиле — полная ширина по центру (col-span-2), на sm — обычная ячейка -->
+          <button type="button" class="works-thumb col-span-2 sm:col-span-1 overflow-hidden rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+                  data-src="public/images/r7.webp" data-alt="Пример работы 7" aria-label="Открыть фото 7">
+            <img src="public/images/r7.webp" alt="Пример работы 7" width="480" height="360"
+                 class="aspect-[4/3] w-full object-cover transition-transform duration-300 hover:scale-105"
+                 loading="lazy" decoding="async">
+          </button>
+
+        </div>
+      </div>
+    </section>
+
     <section id="social-proof" class="border-y border-slate-200 bg-slate-50 py-12 sm:py-16">
       <div class="bg-sky-600">
         <div class="mx-auto grid max-w-5xl grid-cols-1 gap-6 px-4 py-8 text-center sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -404,6 +476,19 @@
     </div>
   </div>
 
+  <!-- Lightbox overlay -->
+  <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/90 p-4 backdrop-blur-sm"
+       role="dialog" aria-modal="true" aria-label="Просмотр фото">
+    <button type="button" id="lightbox-close"
+            class="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white transition-colors hover:bg-white/40"
+            aria-label="Закрыть">
+      <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+    <img id="lightbox-img" src="" alt="" class="max-h-[85vh] max-w-full rounded-xl object-contain shadow-2xl">
+  </div>
+
   <script>
     (function () {
       var menu = document.getElementById('mobile-menu');
@@ -518,6 +603,47 @@
           closeModal();
         });
       }
+
+      var lightbox = document.getElementById('lightbox');
+      var lightboxImg = document.getElementById('lightbox-img');
+      var lightboxClose = document.getElementById('lightbox-close');
+
+      function openLightbox(src, alt) {
+        lightboxImg.src = src;
+        lightboxImg.alt = alt;
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        lightboxImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('.works-thumb').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          openLightbox(btn.getAttribute('data-src'), btn.getAttribute('data-alt'));
+        });
+      });
+
+      if (lightboxClose) {
+        lightboxClose.addEventListener('click', closeLightbox);
+      }
+
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+          closeLightbox();
+        }
+      });
 
       var y = document.getElementById('year');
       if (y) y.textContent = new Date().getFullYear();
